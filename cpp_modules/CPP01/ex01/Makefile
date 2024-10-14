@@ -6,13 +6,13 @@
 #    By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 17:07:34 by wcorrea-          #+#    #+#              #
-#    Updated: 2024/10/14 16:50:18 by crocha-s         ###   ########.fr        #
+#    Updated: 2024/10/14 21:29:13 by crocha-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = moarbrainz
 
-SRC = main.cpp Zombie.cpp 
+SRC = main.cpp Zombie.cpp zombieHorde.cpp 
 INCLUDE = -I . 
 
 CC = c++

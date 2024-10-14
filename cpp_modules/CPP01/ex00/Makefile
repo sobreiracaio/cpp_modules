@@ -6,11 +6,11 @@
 #    By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 17:07:34 by wcorrea-          #+#    #+#              #
-#    Updated: 2024/10/14 16:45:47 by crocha-s         ###   ########.fr        #
+#    Updated: 2024/10/14 21:28:53 by crocha-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = brainz
 
 SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 INCLUDE = -I . 
