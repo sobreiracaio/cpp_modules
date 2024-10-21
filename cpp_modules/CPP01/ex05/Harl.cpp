@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 20:17:59 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/10/16 20:22:46 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/10/21 16:14:03 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,15 @@ Harl::~Harl(){}
 
 void Harl::complain(std::string level)
 {
-    
+    int i = 0;
+    void (Harl::*function[4])(void) = {&Harl::_info, &Harl::_debug, &Harl::_warning, &Harl::_error};
+    std::string levels[4] = {"INFO", "DEBUG", "WARNING", "ERROR"};
+    while(i < 4)
+    {
+        if(levels[i] == level)
+            (this->*function[i])();
+        i++;
+    }
 }
 
 void Harl::_info(void)
