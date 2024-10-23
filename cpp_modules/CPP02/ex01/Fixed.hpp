@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:33:24 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/10/22 20:35:36 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:38:08 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ class Fixed{
         ~Fixed();
 
         Fixed& operator=(const Fixed& original);
+       
         
         int getRawBits( void ) const;
         void setRawBits( int const raw );
 
-        float toFloat(void);
-        int toInt(void);
+        float toFloat(void)const;
+        int toInt(void)const;
                 
     private:
         int _value;
@@ -39,7 +40,7 @@ class Fixed{
     
 };
 
-
+std::ostream& operator<<(std::ostream &COUT, const Fixed &fixed);
 
 
 #endif
