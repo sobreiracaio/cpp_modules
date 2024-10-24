@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:41:55 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/10/23 19:40:52 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/10/24 17:37:17 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,114 @@ float Fixed::toFloat(void)const
 int Fixed::toInt(void)const
 {
     return (this->_value / (1 << Fixed::_bits));
+}
+
+Fixed Fixed::operator+(const Fixed& original) const
+{
+   return (Fixed(this->toFloat() + original.toFloat()));
+}
+
+Fixed Fixed::operator-(const Fixed& original) const
+{
+    return (Fixed(this->toFloat() - original.toFloat()));
+}
+
+Fixed Fixed::operator*(const Fixed& original) const
+{
+    return (Fixed(this->toFloat() * original.toFloat()));
+}
+
+Fixed Fixed::operator/(const Fixed& original) const
+{
+    return (Fixed(this->toFloat() / original.toFloat()));
+} 
+       
+bool Fixed::operator<(const Fixed& original) const
+{
+    return (this->getRawBits() < original.getRawBits());
+}
+
+bool Fixed::operator>(const Fixed& original) const
+{
+    return (this->getRawBits() > original.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed& original) const
+{
+    return (this->getRawBits() <= original.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed& original) const
+{
+    return (this->getRawBits() >= original.getRawBits());
+}
+
+bool Fixed::operator==(const Fixed& original) const
+{
+    return (this->getRawBits() == original.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed& original) const
+{
+    return (this->getRawBits() != original.getRawBits());
+}
+
+Fixed Fixed::operator++(void)
+{
+    this->_value++;
+    return (*this);
+}
+
+Fixed Fixed::operator--(void)
+{
+    this->_value--;
+    return (*this);
+}
+
+Fixed Fixed::operator++(int a)
+{
+    (void) a;
+    Fixed duplicate(*this);
+    ++(*this);
+    return (duplicate);
+}
+
+Fixed Fixed::operator--(int a)
+{
+    (void) a;
+    Fixed duplicate(*this);
+    --(*this);
+    return (duplicate);
+}
+        
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+    if(a < b)
+        return (a);
+    else
+        return (b);
+}
+
+Fixed &Fixed::max(Fixed& a, Fixed& b)
+{
+    if(a > b)
+        return (a);
+    else
+        return (b);
+}
+
+Fixed const &Fixed::min(const Fixed& a, const Fixed& b)
+{
+    if(a < b)
+        return (a);
+    else
+        return (b);
+}
+
+Fixed const &Fixed::max(const Fixed& a, const Fixed& b)
+{
+    if(a > b)
+        return (a);
+    else
+        return (b);
 }

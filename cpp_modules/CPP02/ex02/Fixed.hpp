@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:33:24 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/10/23 21:35:28 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/10/24 17:34:46 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ class Fixed{
         ~Fixed();
 
         Fixed& operator=(const Fixed& original);
-        Fixed operator+(const Fixed& original);
-        Fixed operator-(const Fixed& original);
-        Fixed operator*(const Fixed& original);
-        Fixed operator/(const Fixed& original);
+        Fixed operator+(const Fixed& original) const;
+        Fixed operator-(const Fixed& original) const;
+        Fixed operator*(const Fixed& original) const;
+        Fixed operator/(const Fixed& original) const;
         
-        Fixed operator<(const Fixed& original);
-        Fixed operator>(const Fixed& original);
-        Fixed operator<=(const Fixed& original);
-        Fixed operator>=(const Fixed& original);
+        bool operator<(const Fixed& original) const;
+        bool operator>(const Fixed& original) const;
+        bool operator<=(const Fixed& original) const;
+        bool operator>=(const Fixed& original) const;
 
-        Fixed operator==(const Fixed& original);
-        Fixed operator!=(const Fixed& original);
+        bool operator==(const Fixed& original) const;
+        bool operator!=(const Fixed& original) const;
 
         Fixed operator++(void);
         Fixed operator--(void);
@@ -46,10 +46,10 @@ class Fixed{
 
         
 
-        static Fixed &min(Fixed& a, Fixed& b);
-        static Fixed &max(Fixed& a, Fixed& b);
-        static Fixed const &min(const Fixed& a, const Fixed& b);
-        static Fixed const &max(const Fixed& a, const Fixed& b);
+        static Fixed &min(Fixed &a, Fixed &b);
+        static Fixed &max(Fixed &a, Fixed &b);
+        static Fixed const &min(const Fixed &a, const Fixed &b);
+        static Fixed const &max(const Fixed &a, const Fixed &b);
         
         
         
