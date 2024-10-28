@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:53:38 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/10/24 21:48:03 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:53:58 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ class ClapTrap {
             void takeDamage(unsigned int amount);
             void beRepaired(unsigned int amount);
             bool endGame(void);
+
+            std::string getName(void) const;
+            unsigned int getHitPoints(void) const;
+            unsigned int getEnergyPoints(void) const;
             
 
     private:
             std::string _name;
-            unsigned int _hitPoints;
-            unsigned int _energyPoints;
+            int _hitPoints;
+            int _energyPoints;
             unsigned int _attackDamage;
     
 };
