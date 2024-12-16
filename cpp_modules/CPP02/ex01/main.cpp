@@ -6,11 +6,10 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:27:21 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/10/23 19:31:58 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/10/24 17:38:50 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Fixed.hpp"
 
 int main( void ) 

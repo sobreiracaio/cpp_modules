@@ -6,13 +6,13 @@
 #    By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 15:03:38 by crocha-s          #+#    #+#              #
-#    Updated: 2024/10/28 16:20:56 by crocha-s         ###   ########.fr        #
+#    Updated: 2024/11/07 18:48:57 by crocha-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
+NAME = diamondtrap
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJS = ${SRC:.cpp=.o}
 

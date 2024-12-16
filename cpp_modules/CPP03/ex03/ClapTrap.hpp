@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:53:38 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/11/06 19:12:31 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/11/06 19:14:12 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ class ClapTrap {
             unsigned int getHitPoints(void) const;
             unsigned int getEnergyPoints(void) const;
             unsigned int getAttackPoints (void) const;
-            
 
-    private:
+    protected:
             std::string _name;
             int _hitPoints;
             int _energyPoints;
