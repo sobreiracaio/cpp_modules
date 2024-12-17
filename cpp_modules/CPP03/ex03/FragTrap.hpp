@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:25:16 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/16 20:01:58 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:43:29 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class FragTrap: virtual public ClapTrap{
         void highFivesGuys(void);
     
     protected:
-        int startHP = 100;
-        int startEnergy = 100;
-        int startDmg = 30;
+        static const int startHP = 100;
+        static const int startEnergy = 100;
+        static const int startDmg = 30;
             
 };

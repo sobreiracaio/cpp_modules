@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 19:56:41 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/16 20:10:14 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:43:20 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ScavTrap: virtual public ClapTrap{
     void attack(std::string const &target);
     
     protected:
-    int startHP = 100;
-    int startEnergy = 50;
-    int startDmg = 20;
+    static const int startHP = 100;
+    static const int startEnergy = 50;
+    static const int startDmg = 20;
 };
