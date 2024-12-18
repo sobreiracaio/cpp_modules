@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:06:40 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/18 18:02:51 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/18 19:23:12 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ Dog &Dog::operator=(Dog const &copy)
 
 void Dog::makeSound() const
 {
-    std::cout << "Woof woof!" << std::endl;
+    std::cout << " does: Woof woof!" << std::endl;
 }

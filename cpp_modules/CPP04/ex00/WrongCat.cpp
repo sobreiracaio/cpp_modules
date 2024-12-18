@@ -1,54 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:06:40 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/18 19:24:28 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/18 19:23:38 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongCat.hpp"
 
-Animal::Animal()
+WrongCat::WrongCat()
 {
-    std::cout << "Animal default constructor called." << std::endl;
-    this->type = "default";
+    std::cout << "WrongCat default constructor called." << std::endl;
+    this->type = "WrongCat";
 }
 
-Animal::Animal(Animal const &copy)
+WrongCat::WrongCat(WrongCat const &copy) : WrongAnimal(copy)
 {
-    std::cout << "Animal copy constructor called." << std::endl;
+    std::cout << "WrongCat copy constructor called." << std::endl;
     *this = copy;
 }
 
-Animal::~Animal()
+WrongCat::~WrongCat()
 {
-    std::cout << "Animal destructor called" << std::endl;
+    std::cout << "WrongCat destructor called" << std::endl;
 }
 
-std::string Animal::getType() const
+WrongCat &WrongCat::operator=(WrongCat const &copy)
 {
-    return(this->type);
-}
-
-void Animal::setType(std::string newType)
-{
-    this->type = newType;
-}
-
-Animal &Animal::operator=(Animal const &copy)
-{
-    std::cout << "Animal assigment operator called" << std::endl;
+    std::cout << "WrongCat assigment operator called" << std::endl;
     if(this == &copy)
         return (*this);
     this->type = copy.getType();
     return (*this);
 }
 
-void Animal::makeSound() const
+void WrongCat::makeSound() const
 {
-    std::cout << "Grrrr... unidentified animal." << std::endl;
+    std::cout << " does: Mooooo!." << std::endl;
 }
