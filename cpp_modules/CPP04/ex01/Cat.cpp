@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:06:40 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/20 18:55:27 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/20 20:17:47 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Cat::Cat()
 {
     std::cout << "Cat default constructor called." << std::endl;
     this->type = "Cat";
-    this->_brain = new Brain;
+    this->_brain = new Brain();
 }
 
 Cat::Cat(Cat const &copy) : Animal(copy)
@@ -37,7 +37,6 @@ Cat &Cat::operator=(Cat const &copy)
     std::cout << "Cat assigment operator called" << std::endl;
     if(this == &copy)
         return (*this);
-    this->type = copy.getType();
     delete this->_brain;
     this->_brain = new Brain(*copy._brain);
     return (*this);

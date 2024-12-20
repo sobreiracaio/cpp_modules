@@ -6,13 +6,13 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:28:47 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/20 19:16:49 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/20 20:43:57 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
-Brain::Brain()
+Brain::Brain(void)
 {
     std::cout << "Brain default constructor called." << std::endl;
     std::string const needs[]  = 
@@ -51,7 +51,6 @@ Brain &Brain::operator=(Brain const &copy)
         return (*this);
     for(int i = 0; i < 100; i++)
         this->ideas[i] = copy.ideas[i];
-    *this = copy; 
     return (*this);
 }
 
