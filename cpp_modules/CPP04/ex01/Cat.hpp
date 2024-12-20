@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:03:30 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/19 17:39:10 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:17:40 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
-# include "Brain.cpp"
+# include "Brain.hpp"
 
 class Cat: public Animal{
     
@@ -24,8 +24,9 @@ class Cat: public Animal{
         Cat();
         Cat(Cat const &copy);
         Cat &operator=(Cat const &copy);
-        ~Cat();
+        virtual ~Cat();
         void makeSound() const;
+        Brain *getBrain () const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:06:40 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/19 20:01:29 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:47:31 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,9 @@ Dog &Dog::operator=(Dog const &copy)
 void Dog::makeSound() const
 {
     std::cout << " does: Woof woof!" << std::endl;
+}
+
+Brain *Dog::getBrain() const
+{
+    return (this->_brain); 
 }

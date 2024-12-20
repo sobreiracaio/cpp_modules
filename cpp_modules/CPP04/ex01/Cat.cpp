@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:06:40 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/19 19:53:29 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:55:27 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,9 @@ Cat &Cat::operator=(Cat const &copy)
 void Cat::makeSound() const
 {
     std::cout << " does: Meowwww." << std::endl;
+}
+
+Brain *Cat::getBrain() const
+{
+    return (this->_brain); 
 }

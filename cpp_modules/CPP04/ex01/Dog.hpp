@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:03:30 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/19 17:39:32 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:12:22 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ class Dog: public Animal{
         Dog();
         Dog(Dog const &copy);
         Dog &operator=(Dog const &copy);
-        ~Dog();
+        virtual ~Dog();
         void makeSound() const;
+        Brain *getBrain () const;
 };
 
 #endif

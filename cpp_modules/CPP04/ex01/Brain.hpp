@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:11:45 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/19 17:38:20 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:16:52 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BRAIN_HPP
 
 #include <iostream>
-
+#include <cstdlib>
 class Brain{
     
     private:
@@ -24,7 +24,7 @@ class Brain{
         Brain(Brain const &copy);
         virtual ~Brain();
         Brain &operator=(Brain const &copy);
-
+        
         
         
 };

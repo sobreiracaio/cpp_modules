@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:28:47 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/19 17:38:15 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/20 19:16:49 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,4 @@ Brain &Brain::operator=(Brain const &copy)
     *this = copy; 
     return (*this);
 }
+
