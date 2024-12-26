@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:06:40 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/20 20:00:22 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/18 19:23:38 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog()
+WrongCat::WrongCat()
 {
-    std::cout << "Dog default constructor called." << std::endl;
-    this->type = "Dog";
+    std::cout << "WrongCat default constructor called." << std::endl;
+    this->type = "WrongCat";
 }
 
-Dog::Dog(Dog const &copy) : Animal (copy)
+WrongCat::WrongCat(WrongCat const &copy) : WrongAnimal(copy)
 {
-    std::cout << "Dog copy constructor called." << std::endl;
+    std::cout << "WrongCat copy constructor called." << std::endl;
     *this = copy;
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-    std::cout << "Dog destructor called" << std::endl;
+    std::cout << "WrongCat destructor called" << std::endl;
 }
 
-Dog &Dog::operator=(Dog const &copy)
+WrongCat &WrongCat::operator=(WrongCat const &copy)
 {
-    std::cout << "Dog assigment operator called" << std::endl;
+    std::cout << "WrongCat assigment operator called" << std::endl;
     if(this == &copy)
         return (*this);
     this->type = copy.getType();
     return (*this);
 }
 
-void Dog::makeSound() const
+void WrongCat::makeSound() const
 {
-    std::cout << " does: Woof woof!" << std::endl;
+    std::cout << " does: Mooooo!." << std::endl;
 }

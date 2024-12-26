@@ -1,44 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:06:40 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/20 20:00:22 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/26 16:00:46 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Animal.hpp"
 
-Dog::Dog()
+Animal::Animal()
 {
-    std::cout << "Dog default constructor called." << std::endl;
-    this->type = "Dog";
+    std::cout << "Animal default constructor called." << std::endl;
+    this->type = "default";
 }
 
-Dog::Dog(Dog const &copy) : Animal (copy)
+Animal::Animal(Animal const &copy)
 {
-    std::cout << "Dog copy constructor called." << std::endl;
+    std::cout << "Animal copy constructor called." << std::endl;
     *this = copy;
 }
 
-Dog::~Dog()
+Animal::~Animal()
 {
-    std::cout << "Dog destructor called" << std::endl;
+    std::cout << "Animal destructor called" << std::endl;
 }
 
-Dog &Dog::operator=(Dog const &copy)
+std::string Animal::getType() const
 {
-    std::cout << "Dog assigment operator called" << std::endl;
+    return(this->type);
+}
+
+void Animal::setType(std::string newType)
+{
+    this->type = newType;
+}
+
+Animal &Animal::operator=(Animal const &copy)
+{
+    std::cout << "Animal assigment operator called" << std::endl;
     if(this == &copy)
         return (*this);
     this->type = copy.getType();
     return (*this);
 }
 
-void Dog::makeSound() const
-{
-    std::cout << " does: Woof woof!" << std::endl;
-}
