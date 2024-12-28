@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:26:58 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/28 17:14:56 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/28 19:47:51 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Bureaucrat{
     private:
         const std::string _name;
         int _grade;
+        void _setGrade(int grade);
     public:
         Bureaucrat(void);
         Bureaucrat(std::string name, int grade);
@@ -29,7 +30,7 @@ class Bureaucrat{
         Bureaucrat &operator=(Bureaucrat const &copy);
 
         std::string getName(void) const;
-        int getGrade(void);
+        int getGrade(void) const;
         
         void incrementGrade(void);
         void decrementGrade(void);
