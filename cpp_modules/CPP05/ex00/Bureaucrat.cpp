@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:50:53 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/28 19:48:45 by crocha-s         ###   ########.fr       */
+/*   Updated: 2024/12/30 17:48:02 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ Bureaucrat::Bureaucrat(void):_name("default"), _grade(150)
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-    std::cout <<"Parameter constructor called. Bureaucrat named: " << this->getName();
-    std::cout <<" was created and it is " << this->getGrade() << "º on rank." << std::endl;
+    
+    std::cout <<"Parameter constructor called. Bureaucrat named " << this->getName();
+    std::cout <<" was created and he/she is " << this->getGrade() << "º on rank." << std::endl;
+    _setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy)
@@ -83,8 +85,8 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return ("Grade too low for the job.");
 }
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat const &copy)
+std::ostream &operator<<(std::ostream &out, Bureaucrat *copy)
 {
-    out << "Bureaucrat named :" << copy.getName() << "is grade " << copy.getGrade() << std::endl;
+    out << "Bureaucrat named " << copy->getName() << " is grade " << copy->getGrade() << ".";
     return (out);
 }
