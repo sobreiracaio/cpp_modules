@@ -17,7 +17,6 @@ void proceed(std::string msg)
     std::cout << msg << std::endl;
     std::cout << "Press ENTER to proceed." << std::endl;
     std::cin.ignore();
-    //std::cout << std::endl;
 }
 
 int main(void)
