@@ -6,14 +6,16 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 20:26:53 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/02 16:04:23 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/02 20:56:27 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-#include "Bureaucat.hpp"
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form{
     
@@ -27,7 +29,7 @@ class Form{
         
     public:
         Form(void);
-        Form(std::string name, bool isSigned, int reqGradeToSign, int reqGradeToExec);
+        Form(std::string name, int reqGradeToSign, int reqGradeToExec);
         Form(const Form &copy);
         ~Form(void);
 
@@ -40,11 +42,11 @@ class Form{
 
         void beSigned(Bureaucrat &bureaucrat);
 
-        class GradeIsTooHigh : std::exception{
+        class GradeTooHighException : std::exception{
             public:
             const char *what() const throw();
         };
-        class GradeIsTooLow : std::exception{
+        class GradeTooLowException : std::exception{
             public:
             const char *what() const throw();
         };

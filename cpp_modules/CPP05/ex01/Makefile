@@ -6,11 +6,11 @@
 #    By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 15:03:38 by crocha-s          #+#    #+#              #
-#    Updated: 2024/12/30 20:26:45 by crocha-s         ###   ########.fr        #
+#    Updated: 2025/01/02 21:00:12 by crocha-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+NAME = formup
 
 SRC = main.cpp Bureaucrat.cpp Form.cpp
 

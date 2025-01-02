@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:19:14 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/02 17:23:44 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/02 21:01:10 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Form::Form (void):_name("default"), _isSigned(false),_reqGradeToSign(150),_reqGr
     std::cout << "Default constructor called." << std::endl;
 }
 
-Form::Form (std::string name, bool isSigned, int reqGradeToSing, int reqGradeToExec):_name(name),_isSigned(false), _reqGradeToSign(reqGradeToSing), _reqGradeToExec(reqGradeToExec)
+Form::Form (std::string name, int reqGradeToSing, int reqGradeToExec):_name(name),_isSigned(false), _reqGradeToSign(reqGradeToSing), _reqGradeToExec(reqGradeToExec)
 {
     std::cout << "Parameter construction called" << std::endl;
     this->_checkGrade(this->getGradeToSign(), this->getGradeToExec());
@@ -65,15 +65,15 @@ int Form::getGradeToExec(void) const
 void Form::_checkGrade(int reqGradeToSign, int reqGradeToExec)
 {
     if(reqGradeToSign < 1 || reqGradeToExec < 1)
-        throw Form::GradeIsTooHigh();
+        throw Form::GradeTooHighException();
     else if (reqGradeToSign > 150 || reqGradeToExec > 150)
-        throw Form::GradeIsTooLow();
+        throw Form::GradeTooLowException();
 }
 
 void Form::beSigned(Bureaucrat &bureaucrat)
 {
     if(bureaucrat.getGrade() > this->getGradeToSign())
-        throw Form::GradeIsTooLow();
+        throw Form::GradeTooLowException();
     else if(this->getSign() == false)
     {
         this->_isSigned = true;
@@ -83,12 +83,12 @@ void Form::beSigned(Bureaucrat &bureaucrat)
         std::cout << "This form is already signed." << std::endl;
 }
 
-const char *Form::GradeIsTooLow::what() const throw()
+const char *Form::GradeTooLowException::what() const throw()
 {
     return ("Grade is too low!");
 }
 
-const char *Form::GradeIsTooHigh::what() const throw()
+const char *Form::GradeTooHighException::what() const throw()
 {
     return ("Grade is too high!");
 }

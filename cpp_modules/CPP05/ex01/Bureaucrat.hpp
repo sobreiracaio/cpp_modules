@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucat.hpp                                      :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <string>
 #include "Form.hpp"
+
+class Form;
 
 class Bureaucrat{
     private:

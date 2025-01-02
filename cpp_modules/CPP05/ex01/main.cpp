@@ -6,11 +6,12 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 14:31:13 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/31 15:43:11 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/02 21:06:10 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucat.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 void proceed(std::string msg)
 {
@@ -21,27 +22,11 @@ void proceed(std::string msg)
 
 int main(void)
 {
-    proceed("#Basic test - default constructor#");
-    Bureaucrat *defaultBureaucrat = NULL;
+    proceed("Test 1 - Bureaucrat not skilled enough to sign a form.");
+    Bureaucrat *parameter = NULL;
     try
     {
-        defaultBureaucrat = new Bureaucrat ();
-    }
-    catch(Bureaucrat::GradeTooLowException &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    catch(Bureaucrat::GradeTooHighException &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    
-    std::cout << defaultBureaucrat << std::endl << std::endl;
-    
-    proceed("#Basic test - Increment rank test#");
-    try
-    {
-        defaultBureaucrat->incrementGrade();
+        parameter = new Bureaucrat("John", 120);
     }
     catch(Bureaucrat::GradeTooHighException &e)
     {
@@ -51,78 +36,43 @@ int main(void)
     {
         std::cout << e.what() << std::endl;
     }
-    std::cout << defaultBureaucrat << std::endl << std::endl;
 
-    defaultBureaucrat->decrementGrade();
-
-    proceed("#Basic test - decrement rank test (grade restored to default)#");
-
-    try
-    {
-        defaultBureaucrat->decrementGrade();
-    }
-    catch(Bureaucrat::GradeTooHighException &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    catch(Bureaucrat::GradeTooLowException &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    
-    std::cout << defaultBureaucrat << std::endl << std::endl;
-
-    defaultBureaucrat->incrementGrade();
-    delete defaultBureaucrat;
-    
-    Bureaucrat *parameterBureaucrat = new Bureaucrat("Parameter", 1);
-    proceed("#Basic test - increment rank test#");
-    try
-    {
-        parameterBureaucrat->incrementGrade();
-    }
-    catch(Bureaucrat::GradeTooHighException &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    catch(Bureaucrat::GradeTooLowException &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    
-    std::cout << parameterBureaucrat << std::endl << std::endl;
-    
-    delete parameterBureaucrat;
-
-    proceed("Invalid grade constructor test");
-
-    Bureaucrat *invalidGrade = NULL;
+    std::cout << parameter << std::endl;
+       
+    Form *form = new Form("Parameter Form", 119, 118);
 
     try
     {
-        invalidGrade = new Bureaucrat("Invalid grade bureaucrat", 151);
+        parameter->signForm(*form);
     }
-    catch(Bureaucrat::GradeTooHighException &e)
+    catch(Form::GradeTooLowException &e)
     {
         std::cout << e.what() << std::endl;
     }
-    catch(Bureaucrat::GradeTooLowException &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+
+    std::cout << form << std::endl;
     
-    delete invalidGrade;
-    invalidGrade = NULL;
+    proceed("Test 2 - Grade will be incremented");
+    parameter->incrementGrade();
+    std::cout << parameter << std::endl;
+
     try
     {
-        invalidGrade = new Bureaucrat ("Invalid grade bureaucrat", 0);
+        parameter->signForm(*form);
     }
-    catch(Bureaucrat::GradeTooHighException &e)
+    catch(Form::GradeTooHighException &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    catch(Form::GradeTooLowException &e)
     {
         std::cout << e.what() << std::endl;
     }
     
-    delete invalidGrade;
+    std::cout << form << std::endl;
+    
+
+    
     
   
     
