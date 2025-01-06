@@ -6,11 +6,11 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 14:31:13 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/12/31 15:43:11 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/02 19:52:45 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucat.hpp"
+#include "Bureaucrat.hpp"
 
 void proceed(std::string msg)
 {

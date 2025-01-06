@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 21:16:02 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/03 21:55:13 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/06 19:57:06 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class ShrubberyCreationForm : virtual public AForm {
     
     std::string getTarget (void) const;
     
-    virtual void execute(Bureacrat const &Bureacrat);
+    virtual void execute(Bureaucrat const &bureaucrat) const;
    
     
 };

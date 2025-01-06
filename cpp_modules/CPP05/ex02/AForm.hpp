@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 20:26:53 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/03 20:31:35 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/06 20:13:25 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class AForm{
         AForm &operator=(const AForm &copy);
         
         std::string getName(void) const;
-        bool getSign(void);
+        bool getSign(void) const;
         int getGradeToSign(void) const;
         int getGradeToExec(void) const;
 
