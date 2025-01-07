@@ -6,13 +6,13 @@
 #    By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 15:03:38 by crocha-s          #+#    #+#              #
-#    Updated: 2025/01/03 20:15:05 by crocha-s         ###   ########.fr        #
+#    Updated: 2025/01/07 21:20:02 by crocha-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = formup
 
-SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 OBJS = ${SRC:.cpp=.o}
 

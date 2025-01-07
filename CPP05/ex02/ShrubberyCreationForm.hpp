@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 21:16:02 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/06 19:57:06 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/07 22:05:36 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 #include <fstream>
 #include "AForm.hpp"
-#include "Bureaucrat.cpp"
+#include "Bureaucrat.hpp"
 
 class AForm;
-class Bureacrat;
+class Bureaucrat;
 
 class ShrubberyCreationForm : virtual public AForm {
   private:

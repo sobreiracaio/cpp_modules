@@ -6,12 +6,11 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 20:26:53 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/06 20:13:25 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/07 21:03:44 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AFORM_HPP
-# define AFORM_HPP
+#pragma once
 
 #include "Bureaucrat.hpp"
 
@@ -62,4 +61,3 @@ class AForm{
 
 std::ostream &operator<<(std::ostream &out, AForm *source);
 
-#endif

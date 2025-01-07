@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:19:14 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/03 20:44:27 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/07 21:03:01 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ std::string AForm::getName(void) const
     return (this->_name);
 }
 
-bool AForm::getSign(void)
+bool AForm::getSign(void) const
 {
     return(this->_isSigned);
 }

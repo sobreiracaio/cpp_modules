@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 21:38:12 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/07 00:12:43 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/07 21:26:07 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string const &target):AForm(
     std::cout << "Presidential default Pardon Form has been created." << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy):AForm("PresidentialPardonForm",25, 5),_target(copy.getTarget())
 {
     std::cout << "Presidential Pardon Form created, source: " << copy.getName() << std::endl;
     *this = copy;

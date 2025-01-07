@@ -6,11 +6,12 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:50:53 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/03 21:14:43 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/07 22:04:47 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
 
 Bureaucrat::Bureaucrat(void):_name("default"), _grade(150)
 {
