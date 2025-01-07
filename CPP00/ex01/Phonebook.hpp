@@ -20,6 +20,8 @@ class Phonebook{
         int _id;
         Contact _contacts[8];
         void _printTable();
+        bool _isPrintable(std::string const str);
+        bool _isDigit(std::string const str);
         
     public:
         Phonebook();
@@ -27,6 +29,4 @@ class Phonebook{
         void add(void);
         void search (void);
 };
-
-
 #endif

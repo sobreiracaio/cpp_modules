@@ -33,6 +33,9 @@ int main(void)
 
     while(1)
     {
+        user_input.clear();
+        if(std::cin.eof())
+            break;
         if(!is_valid)
         headerMenu();
         std::cout << "Enter a command:" << std::endl;
@@ -54,4 +57,3 @@ int main(void)
     std::cout << CLEAR;
     
 }
-

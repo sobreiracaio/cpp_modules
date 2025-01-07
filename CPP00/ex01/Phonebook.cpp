@@ -19,6 +19,39 @@ Phonebook::Phonebook(void)
 
 Phonebook::~Phonebook(void){}
 
+bool Phonebook::_isPrintable(std::string const str)
+{
+    for(int i = 0; str.length(); i++)
+    {
+        unsigned char c = static_cast<unsigned int>(str[i]);
+        if(!isprint(c))
+        {
+            std::cout << "Word has non printable characters,Press Enter." << std::endl;
+            std::cin.ignore();
+            return (false);
+        }
+        else
+            return (true);
+    }
+    return (true);
+}
+
+bool Phonebook::_isDigit(std::string const str)
+{
+    for(int i = 0; str.length(); i++)
+    {
+      if(!isdigit(str[i]))
+      {
+        std::cout << "Not a number, press Enter." << std::endl;
+        std::cin.ignore();
+        return (false);
+      }
+      else
+        return(true);
+    }
+    return(true);
+}
+
 void Phonebook::add(void)
 {
     std::string firstName, lastName, nickname, phoneNumber, darkSecret;
@@ -35,14 +68,25 @@ void Phonebook::add(void)
 
     std::cout <<"Insert first name: " << std::endl;
     std::getline(std::cin, firstName);
+    if(!_isPrintable(firstName))
+        return;
     std::cout <<"Insert last name: " << std::endl;
     std::getline(std::cin, lastName);
+    if(!_isPrintable(lastName))
+        return;
     std::cout <<"Insert nickname: " << std::endl;
     std::getline(std::cin, nickname);
+    if(!_isPrintable(nickname))
+        return;
     std::cout <<"Insert phone number: " << std::endl;
     std::getline(std::cin, phoneNumber);
+    if(!_isDigit(phoneNumber))
+        return;
     std::cout <<"Insert darkest secret: " << std::endl;
     std::getline(std::cin, darkSecret);
+    if(!_isPrintable(darkSecret))
+        return;
+    
     
     if(firstName.length() < 1
         || lastName.length() < 1
@@ -129,6 +173,8 @@ void Phonebook::search(void)
     {
         std::cout << "Enter the index of the contact to search for it or type BACK to go to the previous menu:" << std::endl;
         std::getline(std::cin, input);
+        if(std::cin.eof())
+            return;
         index = std::atoi(input.c_str());
         if(input == "BACK")
             break;
@@ -148,5 +194,3 @@ void Phonebook::search(void)
 
 
 }
-
-

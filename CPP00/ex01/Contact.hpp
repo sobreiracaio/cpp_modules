@@ -39,6 +39,4 @@ class Contact{
     std::string getNickname (void);
     static std::string formatWidth(std::string field);
 };
-
-
 #endif
