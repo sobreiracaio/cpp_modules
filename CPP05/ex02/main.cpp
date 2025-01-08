@@ -25,7 +25,7 @@ void proceed(std::string msg)
 
 int main(void)
 {
-    proceed("Test 1 - Bureaucrat not skilled enough to sign a form.");
+    proceed("Test 1 - Bureaucrat not skilled enough to sign or execute a form.");
     Bureaucrat *john = new Bureaucrat("John", 149);
     AForm *sForm = new ShrubberyCreationForm("Joe");
     //RobotomyRequestForm * rForm = new RobotomyRequestForm("Charles");
@@ -39,8 +39,15 @@ int main(void)
     {
         std::cout << e.what() << std::endl;
     }
+    try
+    {
+        sForm->execute(*john);
+    }
+    catch(Bureaucrat::GradeTooLowException &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
    
-    
     delete john;
 
     
