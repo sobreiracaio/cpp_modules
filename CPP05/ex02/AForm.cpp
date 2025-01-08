@@ -19,7 +19,7 @@ AForm::AForm (void):_name("default"), _isSigned(false),_reqGradeToSign(150),_req
 
 AForm::AForm (std::string name, int reqGradeToSing, int reqGradeToExec):_name(name),_isSigned(false), _reqGradeToSign(reqGradeToSing), _reqGradeToExec(reqGradeToExec)
 {
-    std::cout << "Parameter construction called" << std::endl;
+    std::cout << "Parameter AForm construction called" << std::endl;
     this->_checkGrade(this->getGradeToSign(), this->getGradeToExec());
 }
 

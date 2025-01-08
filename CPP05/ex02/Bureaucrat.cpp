@@ -18,7 +18,7 @@ Bureaucrat::Bureaucrat(void):_name("default"), _grade(150)
     std::cout <<"Default constructor called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade(grade)
 {
     
     std::cout <<"Parameter constructor called. Bureaucrat named " << this->getName();
@@ -91,7 +91,7 @@ void Bureaucrat::signForm(AForm &form)
     form.beSigned(*this);
 }
 
-void Bureaucrat::executeForm(AForm const &form)
+void Bureaucrat::executeForm(AForm &form) const
 {
     form.execute(*this);
 }

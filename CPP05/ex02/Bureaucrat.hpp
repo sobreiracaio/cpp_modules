@@ -25,7 +25,7 @@ class Bureaucrat{
         void _setGrade(int grade);
     public:
         Bureaucrat(void);
-        Bureaucrat(std::string name, int grade);
+        Bureaucrat(std::string const &name, int grade);
         Bureaucrat(Bureaucrat const &copy);
         ~Bureaucrat(void);
 
@@ -45,11 +45,11 @@ class Bureaucrat{
 
         class GradeTooLowException : public std::exception{
             public:
-            virtual const char *what() const throw();
+                virtual const char *what() const throw();
         };
         
         void signForm(AForm &form);
-        void executeForm(AForm const &form);
+        void executeForm(AForm &form) const;
                 
 };
 

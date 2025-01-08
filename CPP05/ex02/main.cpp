@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -25,26 +25,23 @@ void proceed(std::string msg)
 
 int main(void)
 {
-    proceed("Test 1 - Bureaucrat not skilled enough to execute a form.");
+    proceed("Test 1 - Bureaucrat not skilled enough to sign a form.");
     Bureaucrat *john = new Bureaucrat("John", 149);
-    ShrubberyCreationForm *sForm = new ShrubberyCreationForm("Joe");
+    AForm *sForm = new ShrubberyCreationForm("Joe");
     //RobotomyRequestForm * rForm = new RobotomyRequestForm("Charles");
     //PresidentialPardonForm *pForm = new PresidentialPardonForm("Mike");
 
     try
     {
-        sForm->execute(*john);
+        sForm->beSigned(*john);
     }
     catch(AForm::GradeTooLowException &e)
     {
         std::cout << e.what() << std::endl;
     }
-    catch(AForm::FormNotSignedException &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+   
     
-    
+    delete john;
 
     
     
