@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 14:31:13 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/07 21:08:26 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:23:26 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int main(void)
     proceed("Test 1 - Bureaucrat not skilled enough to sign or execute a form.");
     Bureaucrat *john = new Bureaucrat("John", 149);
     AForm *sForm = new ShrubberyCreationForm("Joe");
-    //RobotomyRequestForm * rForm = new RobotomyRequestForm("Charles");
-    //PresidentialPardonForm *pForm = new PresidentialPardonForm("Mike");
+    AForm * rForm = new RobotomyRequestForm("Charles");
+    AForm *pForm = new PresidentialPardonForm("Mike");
 
     try
     {
