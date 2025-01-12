@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 00:30:24 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/10/16 19:23:31 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/12 14:20:40 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int main (int argc, char **argv)
     else
         {
             std::cout << "Error opening file." << std::endl;
+            file.close();
+            outFile.close();
             exit(1);
         }
     return (0);
