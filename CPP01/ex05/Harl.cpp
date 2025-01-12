@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 20:17:59 by crocha-s          #+#    #+#             */
-/*   Updated: 2024/10/21 16:14:03 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/12 14:24:27 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void Harl::_warning(void)
 
 void Harl::_error(void)
 {
-    std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl; 
+    std::cout << "This is unacceptable! I want to speak to the manager now!!!" << std::endl; 
 }
 
