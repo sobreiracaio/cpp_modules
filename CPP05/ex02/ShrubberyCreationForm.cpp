@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 21:47:56 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/07 22:08:28 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:03:37 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const target): AForm("ShrubberyCreationForm",145, 137),_target(target)
 {
-    std::cout << "Shrubbery Creation Form created: " << this->_target << std::endl;
+    std::cout << "Shrubbery Creation Form created, target: " << this->_target << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy): AForm("ShrubberyCreationForm",145, 137),_target(copy.getTarget())
@@ -44,7 +44,7 @@ std::string ShrubberyCreationForm::getTarget(void) const
 void ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const
 {
     if(bureaucrat.getGrade() > this->getGradeToExec())
-        throw Bureaucrat::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     else if(!this->getSign())
         throw AForm::FormNotSignedException();
     else

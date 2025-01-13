@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 21:38:12 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/07 21:25:25 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:05:06 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target):AForm("RobotomyRequestForm",72, 45),_target(target)
 {
-    std::cout << "Robotomy default Request Form has been created." << std::endl;
+    std::cout << "Robotomy default Request Form has been created, target: " << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy):AForm("RobotomyRequestForm",72, 45),_target(copy.getTarget())

@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:19:14 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/07 21:03:01 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:16:23 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,12 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 
 const char *AForm::GradeTooLowException::what() const throw()
 {
-    return ("Grade is too low!");
+    return ("Grade is too low for this job!");
 }
 
 const char *AForm::GradeTooHighException::what() const throw()
 {
-    return ("Grade is too high!");
+    return ("Grade is too high for this job!");
 }
 
 const char *AForm::FormNotSignedException::what() const throw()

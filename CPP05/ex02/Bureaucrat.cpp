@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:50:53 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/07 22:04:47 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:15:37 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ void Bureaucrat::decrementGrade(void)
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return ("Grade too high for the job.");
+    return ("Grade too high for a bureaucrat.");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return ("Grade too low for the job.");
+    return ("Grade too low for a bureaucrat.");
 }
 
 void Bureaucrat::signForm(AForm &form)
