@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 21:47:56 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/13 18:03:37 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:12:34 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const
         }
         file.close();
     }
+    std::cout << "Shruberry Form has been created on your folder. Bureaucrat on charge: " << bureaucrat.getName()<< std::endl; 
 }
 
 std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm *copy)

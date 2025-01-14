@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 14:31:13 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/13 18:12:56 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:21:36 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int main(void)
     AForm *rForm = new RobotomyRequestForm("Charles");
     AForm *pForm = new PresidentialPardonForm("Mike");
 
-    proceed("Trying to sign and execute Shrubbery Creation Form:");
+    proceed("\nTrying to sign and execute Shrubbery Creation Form:");
     
     try
     {
@@ -112,7 +112,7 @@ int main(void)
         std::cout << e.what() << std::endl;
     }
 
-    proceed("Trying to sign and execute Robotomy Request Form:");
+    proceed("\nTrying to sign and execute Robotomy Request Form:");
     
      try
     {
@@ -135,7 +135,7 @@ int main(void)
         std::cout << e.what() << std::endl;
     }
 
-    proceed("Trying to sign and execute Presidential Pardon Form:");
+    proceed("\nTrying to sign and execute Presidential Pardon Form:");
 
      try
     {

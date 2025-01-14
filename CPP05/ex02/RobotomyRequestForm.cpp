@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 21:38:12 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/13 18:05:06 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:21:04 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy):AForm(
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "Robotomy request form deleted :" << this->getName();
+    std::cout << "Robotomy request form deleted :" << this->getName() << std::endl;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &copy)
@@ -43,7 +43,7 @@ std::string RobotomyRequestForm::getTarget(void) const
 
 void RobotomyRequestForm::execute(Bureaucrat const &bureaucrat) const
 {
-    if(bureaucrat.getGrade() < this->getGradeToExec())
+    if(bureaucrat.getGrade() > this->getGradeToExec())
         throw AForm::GradeTooLowException();
         
     else if(!this->getSign())

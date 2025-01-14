@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:19:14 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/13 17:16:23 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/13 23:52:13 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int AForm::getGradeToExec(void) const
 
 void AForm::_checkGrade(int reqGradeToSign, int reqGradeToExec)
 {
-    if(reqGradeToSign < 1 || reqGradeToExec < 1)
+    if(reqGradeToSign < 1 || reqGradeToExec < 1 )
         throw AForm::GradeTooHighException();
     else if (reqGradeToSign > 150 || reqGradeToExec > 150)
         throw AForm::GradeTooLowException();

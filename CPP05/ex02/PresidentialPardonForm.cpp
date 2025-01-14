@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 21:38:12 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/07 21:26:07 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:19:05 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &cop
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-    std::cout << "Presidential Pardon form deleted :" << this->getName();
+    std::cout << "Presidential Pardon form deleted :" << this->getName() << std::endl;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &copy)
@@ -43,7 +43,7 @@ std::string PresidentialPardonForm::getTarget(void) const
 
 void PresidentialPardonForm::execute(Bureaucrat const &bureaucrat) const
 {
-    if(bureaucrat.getGrade() < this->getGradeToExec())
+    if(bureaucrat.getGrade() > this->getGradeToExec())
         throw AForm::GradeTooLowException();
         
     else if(!this->getSign())
