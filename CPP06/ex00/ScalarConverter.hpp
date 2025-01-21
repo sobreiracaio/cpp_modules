@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:57:14 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/20 19:55:18 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/21 22:53:15 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ class ScalarConverter {
         ScalarConverter &operator=(ScalarConverter const &copy);
         ~ScalarConverter();
 
-        static int inputParser(std::string const &input);
+        static int _inputParser(std::string const &input);
+        static void _convertData(std::string const &data, int type);
+        static void _printData(int i, char c, float f, double d, int type);
         
-
     public:
     
         static void convert(std::string const &data);

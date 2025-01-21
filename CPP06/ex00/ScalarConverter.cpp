@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 20:11:38 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/20 21:13:24 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/21 22:55:47 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter const &copy)
 
 static bool isNanOrInf(std::string const &data)
 {
-    return(data == "nan" || data == "nanf" || data == "+inf" || data == "-inf");
+    return(data == "nan" || data == "nanf" || data == "+inf" || data == "-inf" || data == "+inff" || data == "-inff" || data == "inf" || data == "inff");
 }
 
 static bool isPritable(std::string const &data)
@@ -122,7 +122,7 @@ static bool isDouble(std::string const &data)
     return (data.find_first_not_of(DOUBLE_SET) == std::string::npos);
 }
 
-int ScalarConverter::inputParser(std::string const &input)
+int ScalarConverter::_inputParser(std::string const &input)
 {
     if(isNanOrInf(input))
         return (INF_NAN);
@@ -138,9 +138,70 @@ int ScalarConverter::inputParser(std::string const &input)
     return (ERROR);
 }
 
+
+
+
+void ScalarConverter::_printData(int i, char c, float f, double d, int type)
+{
+  
+}
+
+void ScalarConverter::_convertData(std::string const &data, int type)
+{
+    int i = 0;
+    char c = 0;
+    float f = 0;
+    double d = 0;
+
+    if(type == INF_NAN)
+    {
+        ScalarConverter::_printData(i, c, f, d, INF_NAN);
+        return;
+    }
+    else
+    {
+        switch (type)
+        {
+        case INT:
+            i = std::atoi(data.c_str());
+            c = static_cast<unsigned char>(i);
+            f = static_cast<float>(i);
+            d = static_cast<double>(i);
+            break;
+        case CHAR:
+            c = static_cast<unsigned char>(data[0]);
+            i = static_cast<int>(c);
+            f = static_cast<float>(c);
+            d = static_cast<double>(c);
+            break;
+        
+        case FLOAT:
+            f = std::atof(data.c_str());
+            d = static_cast<double>(f);
+            i = static_cast<int>(f);
+            c = static_cast<unsigned char>(f);
+            break;
+        
+        case DOUBLE:
+            d = static_cast<double>(std::atof(data.c_str()));
+            f = static_cast<float>(d);
+            i = static_cast<int>(d);
+            c = static_cast<char>(d);
+            break;
+        }
+        ScalarConverter::_printData(i, c, f, d, type);
+    }
+}
+
 void ScalarConverter::convert(const std::string &data)
 {
-    int type = inputParser(data);
-    std::cout << type << std::endl;
+    int type = _inputParser(data);
+    
+    switch (type)
+    {
+        case INF_NAN:
+            
+            
+    }
 }
 
