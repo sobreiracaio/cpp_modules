@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 20:11:38 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/21 22:55:47 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/22 23:44:57 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static bool isNanOrInf(std::string const &data)
 static bool isPritable(std::string const &data)
 {
     char c = data[0];
-    if(c < 0 || (c >= 0 && c <= 31) || c >= 127)
+    if(!isprint(c))
         return (false);
     return (true);
     
@@ -138,12 +138,85 @@ int ScalarConverter::_inputParser(std::string const &input)
     return (ERROR);
 }
 
-
-
-
-void ScalarConverter::_printData(int i, char c, float f, double d, int type)
+static void checkNaN(std::string const &data)
 {
-  
+    std::cout << "char: Impossible" << std::endl;
+    std::cout << "int: Impossible" << std::endl;
+    if(data == "nan" || data == "+inf" || data == "-inf" || data == "inf")
+    {
+        std::cout << "float: "<< data << "f" << std::endl;
+        std::cout << "double "<< data << std::endl;
+    }
+    else
+    {
+        std::cout << "float: "<< data << std::endl;
+        std::cout << "double "<< data.substr(0, data.length() - 1) << std::endl;
+    }
+    
+}
+
+static void checkC(char c)
+{
+    if(isprint(c))
+    {
+        std::cout << c << std::endl;
+        return ;
+    }
+    else
+    {
+        std::cout << "Non Printable." << std::endl;
+        return ;
+    }
+    std::cout << "Impossible" << std::endl;
+    return ;
+}
+
+static void checkI(int i)
+{
+    if(i < INT_MIN || i > INT_MAX)
+    {
+        std::cout << "Impossible" << std::endl;
+        return ;
+    }
+    std::cout << i << std::endl;
+}
+
+void checkF(float f)
+{
+    if(f < -FLT_MAX || f > FLT_MAX)
+    {
+        std::cout << "Impossible" << std::endl;
+        return;
+    }
+    std::cout << f << std::endl;
+}
+
+void checkD(double d)
+{
+    if(d < -DBL_MAX || d > DBL_MAX)
+    {
+        std::cout << "Impossible" << std::endl;
+        return;
+    }
+    std::cout << d << std::endl;
+}
+
+void ScalarConverter::_printData(int i, char c, float f, double d, int type, std::string const &data)
+{
+    if(type == INF_NAN)
+    {
+        checkNaN(data);
+        return;
+    }
+    
+    std::cout << "char: ";
+    checkC(c);
+    std::cout << "int: ";
+    checkI(i);
+    std::cout << "float: ";
+    checkF(f);
+    std::cout << "double: ";
+    checkD(d);
 }
 
 void ScalarConverter::_convertData(std::string const &data, int type)
@@ -153,15 +226,11 @@ void ScalarConverter::_convertData(std::string const &data, int type)
     float f = 0;
     double d = 0;
 
-    if(type == INF_NAN)
+    switch (type)
     {
-        ScalarConverter::_printData(i, c, f, d, INF_NAN);
-        return;
-    }
-    else
-    {
-        switch (type)
-        {
+        case INF_NAN:
+            break;
+            
         case INT:
             i = std::atoi(data.c_str());
             c = static_cast<unsigned char>(i);
@@ -188,20 +257,15 @@ void ScalarConverter::_convertData(std::string const &data, int type)
             i = static_cast<int>(d);
             c = static_cast<char>(d);
             break;
-        }
-        ScalarConverter::_printData(i, c, f, d, type);
     }
+    ScalarConverter::_printData(i, c, f, d, type, data);
+    
 }
 
 void ScalarConverter::convert(const std::string &data)
 {
     int type = _inputParser(data);
     
-    switch (type)
-    {
-        case INF_NAN:
-            
-            
-    }
+    _convertData(data, type);
 }
 
