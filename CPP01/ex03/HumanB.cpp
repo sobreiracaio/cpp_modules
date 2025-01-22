@@ -12,7 +12,7 @@
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name)
+HumanB::HumanB(std::string name) : _weapon(NULL)
 {
     this->_name = name;
 }

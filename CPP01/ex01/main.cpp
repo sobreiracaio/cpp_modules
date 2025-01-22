@@ -30,7 +30,7 @@ int checkSize(int *size)
 			*size = -1;
 			continue;
 		}
-		else if(*size <= 0)
+		else if(*size <= 0 || *size >= 100)
 		{
 			std::cout << "Horde must have a valid number." << std::endl;
 			continue;
@@ -65,7 +65,7 @@ int main(void)
 {
 	int i = 0;
 	int size;
-	Zombie *zombie;
+	Zombie *zombie = NULL;
 	std::string name;
 
 	if (!checkName(&name) && !checkSize(&size))

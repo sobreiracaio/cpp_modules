@@ -46,9 +46,9 @@ int main (int argc, char **argv)
         return (1);
     }
     
-    argv += 1;
-    fileName = argv[0];
-    searchFor = argv[1];
+    
+    fileName = argv[1];
+    searchFor = argv[2];
     
     if(searchFor.empty())
         {
@@ -56,13 +56,13 @@ int main (int argc, char **argv)
             exit(1);
         }
         
-    replacement = argv[2];
+    replacement = argv[3];
         
     file.open(fileName.c_str(), std::ios::in);
-    outFile.open((fileName + ".replacement").c_str(), std::ios::out);
     
-    if(file.is_open() && outFile.is_open())
+    if(file.is_open())
         {
+            outFile.open((fileName + ".replacement").c_str(), std::ios::out);
             std::string line;
             while(std::getline(file, line))
             {
@@ -76,7 +76,7 @@ int main (int argc, char **argv)
         {
             std::cout << "Error opening file." << std::endl;
             file.close();
-            outFile.close();
+            // outFile.close();
             exit(1);
         }
     return (0);
