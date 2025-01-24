@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:57:14 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/22 23:39:23 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/23 23:39:43 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <climits>
 #include <cctype>
 #include <cstdlib>
+#include <cmath>
+#include <iomanip>
 
 #define ERROR -2
 #define INF_NAN -1
@@ -41,7 +43,7 @@ class ScalarConverter {
 
         static int _inputParser(std::string const &input);
         static void _convertData(std::string const &data, int type);
-        static void _printData(int i, char c, float f, double d, int type, std::string const &data);
+        static void _printData(long i, char c, float f, double d, int type, std::string const &data);
         
     public:
     
