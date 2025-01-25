@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 20:11:38 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/25 17:11:37 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/25 18:02:41 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,11 @@ int ScalarConverter::_inputParser(std::string const &input)
     return (ERROR);
 }
 
+static bool isRound(double number)
+{
+    return(number == std::floor(number));
+}
+
 static void checkNaN(std::string const &data)
 {
     std::string tempData = data;
@@ -158,8 +163,14 @@ static void checkNaN(std::string const &data)
     
 }
 
-static void checkC(char c)
+static void checkC(char c, double reference)
 {
+    if ((c < 0 || c > 126) || !isRound(reference))
+    {
+        std::cout << "Impossible" << std::endl;
+        return ;
+    }
+        
     if (isascii(c) && isprint(c))
     {
         std::cout << "'" << c << "'" << std::endl;
@@ -170,8 +181,6 @@ static void checkC(char c)
         std::cout << "Non Printable." << std::endl;
         return ;
     }
-    else if (c < 0 || c > 126)
-        std::cout << "Impossible" << std::endl;
     return ;
 }
 
@@ -186,10 +195,7 @@ static void checkI(long i)
     std::cout << j << std::endl;
 }
 
-static bool isRound(double number)
-{
-    return(number == std::floor(number));
-}
+
 
 void checkF(float f)
 {
@@ -242,7 +248,7 @@ void ScalarConverter::_printData(long i, char c, float f, double d, int type, st
         return;
     }
     std::cout << "char: ";
-    checkC(c);
+    checkC(c, d);
     std::cout << "int: ";
     checkI(i);
     std::cout << "float: ";
@@ -261,6 +267,12 @@ void ScalarConverter::_convertData(std::string const &data, int type)
 
     switch (type)
     {
+        case ERROR:
+            std::cout << "char: Impossible" << std::endl;
+            std::cout << "int: Impossible" << std::endl;
+            std::cout << "float: Impossible" << std::endl;
+            std::cout << "double: Impossible" << std::endl;
+            break;
         case INF_NAN:
             break;
             
@@ -292,7 +304,8 @@ void ScalarConverter::_convertData(std::string const &data, int type)
             c = static_cast<char>(d);
             break;
     }
-    ScalarConverter::_printData(i, c, f, d, type, data);
+    if (type != ERROR)
+        ScalarConverter::_printData(i, c, f, d, type, data);
     
 }
 
