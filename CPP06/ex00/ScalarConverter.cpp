@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 20:11:38 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/24 00:34:39 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/25 17:11:37 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ static bool parseData(std::string const &data, int type)
 
 static bool isChar(std::string const &data)
 {
-    return (data.length() == 1 && isPrintable(data));
+    return (data.length() == 1 && isPrintable(data) && (data[0] > 0 && data[0] < 127));
 }
 
 static bool isInt(std::string const &data)
@@ -126,10 +126,10 @@ int ScalarConverter::_inputParser(std::string const &input)
 {
     if(isNanOrInf(input))
         return (INF_NAN);
-    else if(isInt(input) && parseData(input, INT))
-        return (INT);
     else if(isChar(input))
         return (CHAR);
+    else if(isInt(input) && parseData(input, INT))
+        return (INT);
     else if(isFloat(input) && parseData(input, FLOAT))
         return (FLOAT);
     else if (isDouble(input) && parseData(input, DOUBLE))
@@ -160,9 +160,9 @@ static void checkNaN(std::string const &data)
 
 static void checkC(char c)
 {
-    if(isascii(c) && isprint(c))
+    if (isascii(c) && isprint(c))
     {
-        std::cout << c << std::endl;
+        std::cout << "'" << c << "'" << std::endl;
         return ;
     }
     else if (isascii(c) && !isprint(c))
@@ -170,7 +170,8 @@ static void checkC(char c)
         std::cout << "Non Printable." << std::endl;
         return ;
     }
-    std::cout << "Impossible" << std::endl;
+    else if (c < 0 || c > 126)
+        std::cout << "Impossible" << std::endl;
     return ;
 }
 
@@ -197,14 +198,14 @@ void checkF(float f)
         std::cout << "Impossible" << std::endl;
         return;
     }    
-    else if((f < -FLT_MAX || f > FLT_MAX) || f < FLT_MIN)
+    else if((f < -FLT_MAX || f > FLT_MAX) || (f > 0 && f < FLT_MIN))
     {
         std::cout << "Impossible" << std::endl;
         return;
     }
     if(isRound(f))
     {
-        std::cout << std::setprecision(1) << f;
+        std::cout <<(int)round(f) << ".0";
     }
     else
     {
@@ -220,14 +221,14 @@ void checkD(double d)
         std::cout << "Impossible" << std::endl;
         return;
     }    
-    else if((d < -DBL_MAX || d > DBL_MAX) || d < DBL_MIN )
+    else if((d < -DBL_MAX || d > DBL_MAX) || (d > 0 && d < DBL_MIN) )
     {
         std::cout << "Impossible" << std::endl;
         return;
     }
     if(isRound(d))
     {
-        std::cout << std::setprecision(1) << d;
+        std::cout <<(int)round(d) << ".0";
     }
     else
         std::cout << d << std::endl;
@@ -248,6 +249,7 @@ void ScalarConverter::_printData(long i, char c, float f, double d, int type, st
     checkF(f);
     std::cout << "double: ";
     checkD(d);
+    std::cout << std::endl;
 }
 
 void ScalarConverter::_convertData(std::string const &data, int type)
