@@ -6,14 +6,14 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 16:27:34 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/26 16:53:03 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/26 19:08:11 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include <cstdint>
+#include <stdint.h>
 
 typedef struct Data
 {

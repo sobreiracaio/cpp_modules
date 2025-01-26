@@ -6,13 +6,13 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 16:32:15 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/26 16:55:11 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/01/26 19:08:39 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
-Serializer::Serializer(){};
+Serializer::Serializer(){}
 
 Serializer::Serializer(Serializer const &copy)
 {
@@ -26,7 +26,7 @@ Serializer &Serializer::operator=(Serializer const &copy)
     return (*this);
 }
 
-Serializer::~Serializer(){};
+Serializer::~Serializer(){}
 
 uintptr_t Serializer::serialize(Data *dataPtr)
 {
