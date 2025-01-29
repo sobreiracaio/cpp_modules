@@ -15,7 +15,7 @@
 WrongAnimal::WrongAnimal()
 {
     std::cout << "WrongAnimal default constructor called." << std::endl;
-    this->type = "default";
+    this->type = "Wrongdefault";
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal const &copy)
@@ -50,5 +50,5 @@ WrongAnimal &WrongAnimal::operator=(WrongAnimal const &copy)
 
 void WrongAnimal::makeSound() const
 {
-    std::cout << "Grrrr... unidentified WrongAnimal." << std::endl;
+    std::cout << "do: Grrrr... blblblbl..unidentified wronganimal." << std::endl;
 }

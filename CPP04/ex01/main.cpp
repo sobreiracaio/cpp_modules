@@ -26,22 +26,25 @@ int main()
 {
     proceed("Array Test:");
     Animal *animals[4] = {new Dog, new Dog, new Cat, new Cat};
-    
+    std::cout << std::endl;
     for (int i = 0; i < 4; i++)
     {
-        std::cout<< "Animal " << animals[i]->getType() << "has been destroyed." << std::endl;
+        std::cout<< "Animal " << animals[i]->getType() << " has been destroyed." << std::endl;
         delete animals[i];
+        std::cout << "********" << std::endl;
     }
-    proceed("Shallow copy test:");
+    proceed("\nShallow copy test:");
     {
         Dog original;
+        std::cout << "******" << std::endl;
         {
             Dog copy = original;
             std::cout << "Copy address is: " << copy.getBrain() << std::endl;
+            std::cout << "*******" << std::endl;
         }
         std::cout << "Original address is: " << original.getBrain() << std::endl;
     }
-    proceed("Deep copy test:");
+    proceed("\nDeep copy test:");
     
     Dog *rex = new Dog;
     Dog *rexClone = new Dog(*rex);

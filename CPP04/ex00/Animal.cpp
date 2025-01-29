@@ -50,5 +50,5 @@ Animal &Animal::operator=(Animal const &copy)
 
 void Animal::makeSound() const
 {
-    std::cout << "Grrrr... unidentified animal." << std::endl;
+    std::cout << this->getType() << " do: Grrrr... unidentified animal." << std::endl;
 }
