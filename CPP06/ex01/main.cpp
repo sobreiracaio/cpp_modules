@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/26 17:08:56 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/26 19:45:00 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:03:34 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main(void)
     proceed("Serializing and Deserializing tests:");
     
     uintptr_t serializedPeople [3] = {Serializer::serialize(&person1), Serializer::serialize(&person2), Serializer::serialize(&person3)};
+    
     for(int i = 0; i < 3; i++)
     {
         std::cout << "##### Person " << i + 1 << " #####" << std::endl;

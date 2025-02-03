@@ -6,7 +6,7 @@
 #    By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 17:19:15 by crocha-s          #+#    #+#              #
-#    Updated: 2025/01/19 17:19:17 by crocha-s         ###   ########.fr        #
+#    Updated: 2025/01/29 14:10:04 by crocha-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCLUDE = -I .
 
 CC = c++
 RM = rm -f
-CPPFLAGS = -Wall -Wextra -Werror -pedantic -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .cpp.o:
 		${CC} ${CPPFLAGS} ${INCLUDE} -c $< -o ${<:.cpp=.o}

@@ -6,13 +6,13 @@
 #    By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 17:19:15 by crocha-s          #+#    #+#              #
-#    Updated: 2025/01/27 19:29:51 by crocha-s         ###   ########.fr        #
+#    Updated: 2025/02/03 19:17:57 by crocha-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = serializer
+NAME = identify
 
-SRC = main.cpp Serializer.cpp
+SRC = main.cpp 
 
 OBJS = ${SRC:.cpp=.o}
 
@@ -20,7 +20,7 @@ INCLUDE = -I .
 
 CC = c++
 RM = rm -f
-CPPFLAGS = -Wall -Wextra -Werror  -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 .cpp.o:
 		${CC} ${CPPFLAGS} ${INCLUDE} -c $< -o ${<:.cpp=.o}
