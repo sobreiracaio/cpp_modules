@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:05:36 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/02/08 18:44:21 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/02/09 14:02:14 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 #include "Array.hpp"
 
 template <typename T>
-Array<T>::Array():_size(0)
+Array<T>::Array():_length(0)
 {
     std::cout << "Default Array constructor called." << std::endl;
-    this->_array = new T[_size];
+    this->_array = new T[_length];
 }
 
 template <typename T>
-Array<T>::Array(unsigned int size):_size(size)
+Array<T>::Array(unsigned int size):_length(size)
 {
     std::cout << "Parameter Array constructor called. Array size is: " << size << std::endl;
-    this->_size = size;
+    this->_length = size;
     this->_array = new T[size];
 }
 
 template <typename T>
-Array<T>::Array(Array const &copy):_size(copy._size)
+Array<T>::Array(Array const &copy):_length(copy._length)
 {
     std::cout << "Array copy constructor called." << std::endl;
     this->_array = NULL;
@@ -40,7 +40,7 @@ Array<T>::Array(Array const &copy):_size(copy._size)
 template<typename T>
 Array<T>::~Array()
 {
-    std::cout << "Array destructor called. Its size is: " << this->_size << std::endl;
+    std::cout << "Array destructor called. Its size is: " << this->_length << std::endl;
     if(this->_array)
         delete [] this->_array;
 }
@@ -53,8 +53,8 @@ Array<T> &Array<T>::operator=(Array const &copy)
         delete [] this->_array;
     if(copy.size() > 0)
     {
-        this->_size = copy.size();
-        this->_array = new T[other.size()];
+        this->_length = copy.size();
+        this->_array = new T[copy.size()];
         for (unsigned int i = 0; i < copy.size(); i++)
             this->_array[i] = copy._array[i];
     }
@@ -64,7 +64,7 @@ Array<T> &Array<T>::operator=(Array const &copy)
 template <typename T>
 T &Array<T>::operator[](unsigned int index)
 {
-    if(index >= this->_size || this->_array == NULL)
+    if(index >= this->_length || this->_array == NULL)
     {
         std::cout << "Invalid index number:";
         throw Array<T>::OutofLimitException();
@@ -75,5 +75,5 @@ T &Array<T>::operator[](unsigned int index)
 template <typename T>
 unsigned int Array<T>::size() const
 {
-    return (thiz->_size);
+    return (this->_length);
 }

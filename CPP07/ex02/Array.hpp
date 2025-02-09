@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:10:48 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/02/08 18:49:04 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/02/09 14:20:02 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Array{
     {
         public:
             virtual const char *what() const throw();
-    }
+    };
 };
 
 template<typename T>
@@ -43,4 +43,20 @@ char const *Array<T>::OutofLimitException::what() const throw()
 {
     return ("Out of limits");
 }
+
+template<typename T>
+std::ostream &operator<<(std::ostream & out, Array<T> &array)
+{
+    out << "{";
+    for (unsigned int i = 0; i < array.size(); i++)
+    {
+        if(i != array.size() - 1)
+            out << array[i] << ", ";
+        else
+            out << array[i];
+    }
+    out << "}";
+    return (out);
+}
+
 #include "Array.tpp"
