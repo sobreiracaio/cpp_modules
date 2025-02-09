@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:10:48 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/02/09 14:20:02 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/02/09 16:08:46 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class Array{
 template<typename T>
 char const *Array<T>::OutofLimitException::what() const throw()
 {
-    return ("Out of limits");
+    return (" Out of limits.");
 }
 
 template<typename T>

@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 16:05:36 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/02/09 14:02:14 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/02/09 15:26:47 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 template <typename T>
 Array<T>::Array():_length(0)
 {
-    std::cout << "Default Array constructor called." << std::endl;
+    std::cout << "Default Array constructor called. It default size is: " << this->_length<< std::endl;
     this->_array = new T[_length];
 }
 
