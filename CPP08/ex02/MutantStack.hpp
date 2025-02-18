@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:04:20 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/02/18 20:20:29 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/02/18 22:46:29 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,15 @@ class MutantStack : public std::stack<T, Container>
         }
     };
 
-    // template <typename T> 
-    // void printContent(const T &c)
-    // {
-    //     typename Container::const_iterator it = c.begin();
-       
-    //     while (it != c.end()) {
-    //         std::cout << *it++ << " ";    // Avançar o iterador após imprimir o valor
-    //     }
-    //     std::cout << "}" << std::endl;
-    // }
+template <typename T>
+void printContent(const T& container)
+{
+    typename T::const_iterator it = container.begin();
+    typename T::const_iterator itE = container.end();
+    std::cout << "{ ";
+    while (it != itE) {
+        std::cout << *it << " ";
+        ++it;
+    }
+    std::cout << "}" << std::endl;
+}
