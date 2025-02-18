@@ -6,13 +6,13 @@
 #    By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 17:19:15 by crocha-s          #+#    #+#              #
-#    Updated: 2025/02/17 21:42:25 by crocha-s         ###   ########.fr        #
+#    Updated: 2025/02/18 16:19:17 by crocha-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = span
+NAME = mutant_stack
 
-SRC = main.cpp MutantStack.cpp
+SRC = main.cpp 
 
 OBJS = ${SRC:.cpp=.o}
 

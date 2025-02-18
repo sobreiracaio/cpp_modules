@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:04:20 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/02/17 21:33:58 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:20:29 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,41 @@ class MutantStack : public std::stack<T, Container>
 {
     public:
         MutantStack(){std::cout << "Mutant stack created." << std::endl;}
-        MutantStack(MutantStack const &copy)
+        MutantStack(MutantStack const &copy) : std::stack<T, Container>(copy)
         {
             std::cout << "MutantStack created from other source." << std::endl;
-            *this = copy; 
         }
         ~MutantStack(){std::cout << "Mutantstack has been destroyed." << std::endl;}
         
         MutantStack &operator=(MutantStack const &copy)
         {
             std::cout << "assign MutantStack to other MutantStack" << std::endl;
-			std::stack<T, Container>::operator=(this, copy);
+			std::stack<T, Container>::operator=(copy);
 			return (*this);
         }
 
         typedef typename Container::iterator iter;
 		
-		iter begin(void){return (this->c.begin());}
+	    iter begin(void){return (this->c.begin());}
 		iter end(void){return (this->c.end());}
-        
-   
-    
-};
+
+        void printContent()
+        {
+            typename MutantStack::iter it = this->begin();
+            std::cout << "{ ";
+            while(it != this->end())
+                std::cout << *it++ << " ";
+            std::cout << "}" << std::endl;
+        }
+    };
+
+    // template <typename T> 
+    // void printContent(const T &c)
+    // {
+    //     typename Container::const_iterator it = c.begin();
+       
+    //     while (it != c.end()) {
+    //         std::cout << *it++ << " ";    // Avançar o iterador após imprimir o valor
+    //     }
+    //     std::cout << "}" << std::endl;
+    // }
