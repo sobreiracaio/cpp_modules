@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:16:43 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/02/24 18:34:10 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/02/24 19:07:11 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,10 @@ void BitcoinExchange::readFromFile()
     
     while (std::getline(file, line))
     {
-        this->_rawData.append(line);
-        std::cout << line << std::endl;
+        this->_rawData.append(line + "\n") ;
     }
+    std::cout << this->_rawData << std::endl;
     file.close();
-   
-    
 }
 
 //std::vector<std::string> BitcoinExchange::parseAndPopulate(){}
