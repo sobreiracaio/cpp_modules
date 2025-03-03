@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:16:43 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/03/03 20:12:47 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/03/03 22:16:16 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ std::string trimDate(std::string const &date)
 
 bool checkDate(btcData &btc, std::string const &date)
 {
-    if(date.size() != 10
-        ||  date.find_first_not_of("-0123456789") != std::string::npos		
+    if((date.size() != 10)
+        ||  (date.find_first_not_of("-0123456789") != std::string::npos)		
 		|| (date.find_first_of("-") != 4 || date.find_last_of("-") != 7))
   		    return (false);
       
@@ -39,7 +39,6 @@ bool checkDate(btcData &btc, std::string const &date)
             btc.date = tm;
             return (true);
         }
-        std::cerr << "Error: Data is not properly formatted." << std::endl;
         return (false);
 }
 
@@ -50,10 +49,7 @@ bool checkNumFormat(std::string const &ref)
             || (ref.find_first_of(".") == ref.length() - 1)				
             || (ref.find_first_of(".") == 0)								
             || (ref.find_first_of("+-") != ref.find_last_of("+-")))
-            {
-                std::cerr << "Error: Number is not properly formatted." << std::endl;
                 return (false);
-            }
     return (true);	
 }
 
@@ -65,21 +61,27 @@ bool checkValue(std::string const &data)
 	float nb = std::atof(data.c_str());
 
 	if (nb < 0 || nb >= (float)INT_MAX)
-    {
-        std::cerr << "Error: Number out of limits" << std::endl;
-		return (false);
-    }
-	return (true);
+        return (false);
+    return (true);
 }
 
 bool checkAmount(std::string const &amount)
 {
-    if(checkValue(amount))
+    if(!checkValue(amount))
+    {
+        std::cerr << "Error: Not a valid number" << std::endl;
         return (false);
+    }
     float nb = std::atof(amount.c_str());
+    if(nb < 0)
+    {
+        std::cerr << "Error: Number is negative" << std::endl;
+        return (false);
+    }
     if(nb > 1000)
     {
         std::cerr << "Error: Number is too big, should be less than 1000" << std::endl;
+        return (false);
     }
     return (true);
 }
@@ -189,12 +191,12 @@ void readFromFile(std::vector<btcData> &btc, std::string const &filename)
         tmp.amount = std::atof(tempAmount.c_str());
 		if (!checkDate(tmp, tempDate) || ss.fail())
 		{
-			std::cerr << "Error: Invalid date format." << line << std::endl;
+			std::cerr << "Error: Invalid date format: " << line << std::endl;
 			continue;
 		}
         ss >> garbage;
 		if (!ss.fail())
-			std::cerr << "Garbage characters on line." << line << std::endl;
+			std::cerr << "Garbage characters on line: " << line << std::endl;
         else if (!checkAmount(tempAmount)){}
         
         else
