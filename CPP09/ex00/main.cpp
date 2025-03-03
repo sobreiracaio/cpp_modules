@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:37:11 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/02/26 16:44:27 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/03/03 15:20:05 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int main (int argc, char **argv)
     {
         if(argc != 2)
             throw std::runtime_error("Need a file as argument.");
-       
+        std::vector<btcData> dB = readDB();
+        readFromFile(dB, argv[1]);
             
     
     }
