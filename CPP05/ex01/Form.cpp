@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:19:14 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/02 21:01:10 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/03/12 22:57:31 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void Form::beSigned(Bureaucrat &bureaucrat)
         std::cout << "Bureaucrat named " << bureaucrat.getName() << " rank: " << bureaucrat.getGrade() << " has signed form: " << this->getName() << "." << std::endl;
     }
     else
-        std::cout << "This form is already signed." << std::endl;
+        std::cout << RED <<"This form is already signed." << WHITE << std::endl;
 }
 
 const char *Form::GradeTooLowException::what() const throw()

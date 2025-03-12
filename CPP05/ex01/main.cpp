@@ -6,23 +6,27 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 14:31:13 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/02 21:06:10 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/03/12 22:57:48 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-void proceed(std::string msg)
+void proceed(std::string msg, std::string color, bool has_enter)
 {
-    std::cout << msg << std::endl;
-    std::cout << "Press ENTER to proceed." << std::endl;
-    std::cin.ignore();
+    std::cout << color << msg << WHITE << std::endl;
+    if(has_enter == YES)
+    {
+        std::cout << "Press " << GREEN << "ENTER " << WHITE << "to proceed."  << std::endl;
+        std::cin.ignore();
+    }
 }
 
 int main(void)
 {
-    proceed("Test 1 - Bureaucrat not skilled enough to sign a form.");
+    std::cout << CLEAR;
+    proceed("Test 1 - Bureaucrat not skilled enough to sign a form.", GREEN, YES);
     Bureaucrat *parameter = NULL;
     try
     {
@@ -30,11 +34,11 @@ int main(void)
     }
     catch(Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(Bureaucrat::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
 
     std::cout << parameter << std::endl;
@@ -47,12 +51,13 @@ int main(void)
     }
     catch(Form::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
 
     std::cout << form << std::endl;
-    
-    proceed("Test 2 - Grade will be incremented");
+    std::cin.ignore();
+    std::cout << CLEAR;
+    proceed("Test 2 - Grade will be incremented", GREEN, YES);
     parameter->incrementGrade();
     std::cout << parameter << std::endl;
 
@@ -62,18 +67,21 @@ int main(void)
     }
     catch(Form::GradeTooHighException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(Form::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     std::cout << form << std::endl;
+
+    proceed("Trying to sign an already signed Form", GREEN, YES);
+    parameter->signForm(*form);
     
     delete form;
     delete parameter;
     
-
+    proceed("*****                END                *****", RED, NO);
     
     
   
