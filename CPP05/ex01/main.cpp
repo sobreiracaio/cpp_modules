@@ -68,8 +68,10 @@ int main(void)
     {
         std::cout << e.what() << std::endl;
     }
-    
     std::cout << form << std::endl;
+    
+    delete form;
+    delete parameter;
     
 
     

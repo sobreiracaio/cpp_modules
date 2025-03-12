@@ -14,18 +14,18 @@
 
 Form::Form (void):_name("default"), _isSigned(false),_reqGradeToSign(150),_reqGradeToExec(150)
 {
-    std::cout << "Default constructor called." << std::endl;
+    std::cout << "Default form constructor called." << std::endl;
 }
 
 Form::Form (std::string name, int reqGradeToSing, int reqGradeToExec):_name(name),_isSigned(false), _reqGradeToSign(reqGradeToSing), _reqGradeToExec(reqGradeToExec)
 {
-    std::cout << "Parameter construction called" << std::endl;
+    std::cout << "Parameter form construction called" << std::endl;
     this->_checkGrade(this->getGradeToSign(), this->getGradeToExec());
 }
 
 Form::Form(const Form &copy):_name(copy.getName()), _isSigned(getSign()), _reqGradeToSign(getGradeToSign()), _reqGradeToExec(getGradeToExec())
 {
-    std::cout << "Copy constructor called. Source: " << copy.getName() << std::endl; 
+    std::cout << "Copy form constructor called. Source: " << copy.getName() << std::endl; 
     *this = copy;
 }
 
@@ -36,7 +36,7 @@ Form::~Form(void)
 
 Form &Form::operator=(const Form &copy)
 {
-    std::cout << "Assignation operator called. " << this->getName() << "is receiving attributes from " << copy.getName() << std::endl;
+    std::cout << "Form assignation operator called. " << this->getName() << "is receiving attributes from " << copy.getName() << std::endl;
     if(this == &copy)
         return (*this);
     return (*this); 

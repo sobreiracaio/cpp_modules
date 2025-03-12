@@ -14,20 +14,20 @@
 
 Bureaucrat::Bureaucrat(void):_name("default"), _grade(150)
 {
-    std::cout <<"Default constructor called." << std::endl;
+    std::cout <<"Default bureaucrat constructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
     
-    std::cout <<"Parameter constructor called. Bureaucrat named " << this->getName();
+    std::cout <<"Parameter bureaucrat constructor called. Bureaucrat named " << this->getName();
     std::cout <<" was created and he/she is " << this->getGrade() << "º on rank." << std::endl;
     _setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy)
 {
-    std::cout << "Copy constructor called, source: " << copy.getName() << std::endl;
+    std::cout << "Copy bureaucrat constructor called, source: " << copy.getName() << std::endl;
     *this = copy;
 }
 
