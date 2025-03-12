@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 14:31:13 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/14 16:21:36 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/03/12 23:37:33 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,29 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-void proceed(std::string msg)
+void proceed(std::string msg, std::string color, bool has_enter)
 {
-    std::cout << msg << std::endl;
-    std::cout << "Press ENTER to proceed.\n" << std::endl;
-    std::cin.ignore();
+    std::cout << color << msg << WHITE << std::endl;
+    if(has_enter == YES)
+    {
+        std::cout << "Press " << GREEN << "ENTER " << WHITE << "to proceed."  << std::endl;
+        std::cin.ignore();
+    }
 }
+
 
 const std::string bureaucratName(void)
 {
     std::string name;
     while(1)
     {
-        std::cout << "Name your bureaucrat: " << std::endl;
+        proceed("Name your bureaucrat: ", GREEN, NO);
         std::getline(std::cin, name);
         if(std::cin.eof())
 			break;
         if(name.empty())
 		{
-			std::cout << "Bureaucrat must be named." << std::endl;
+			proceed("Bureaucrat must be named.", RED, NO);
 			continue;
 		}
         else
@@ -47,13 +51,13 @@ int bureaucratRank(void)
     int rank = 0;
     while(1)
     {
-        std::cout << "Grade your bureaucrat: " << std::endl;
+        proceed("Grade your bureaucrat: ", GREEN, NO);
         std::cin >> rank;
         if(std::cin.eof())
 			break;
         if(std::cin.fail())
 		{
-			std::cout << "Grade must have a valid number." << std::endl;
+			proceed("Grade must have a valid number.", RED, NO);
 			std::cin.clear();
 			std::cin.ignore();
 			rank = -1;
@@ -67,7 +71,8 @@ int bureaucratRank(void)
 
 int main(void)
 {
-    proceed("Setting parameters:");
+    std::cout << CLEAR;
+    proceed("Setting parameters:", GREEN, YES);
     const std::string name = bureaucratName();
     int rank = bureaucratRank();
     Bureaucrat *john = NULL;
@@ -78,18 +83,20 @@ int main(void)
     }
     catch(Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(Bureaucrat::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     
     AForm *sForm = new ShrubberyCreationForm("Joe");
     AForm *rForm = new RobotomyRequestForm("Charles");
     AForm *pForm = new PresidentialPardonForm("Mike");
 
-    proceed("\nTrying to sign and execute Shrubbery Creation Form:");
+    std::cin.ignore();
+    std::cout << CLEAR;
+    proceed("\nTrying to sign and execute Shrubbery Creation Form:", GREEN, YES);
     
     try
     {
@@ -97,7 +104,7 @@ int main(void)
     }
     catch(AForm::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     try
     {
@@ -105,22 +112,24 @@ int main(void)
     }
     catch(AForm::FormNotSignedException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(AForm::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
-
-    proceed("\nTrying to sign and execute Robotomy Request Form:");
+    std::cout << sForm;
+    std::cin.ignore();
+    std::cout << CLEAR;
+    proceed("\nTrying to sign and execute Robotomy Request Form:", GREEN, YES);
     
-     try
+    try
     {
         rForm->beSigned(*john);
     }
     catch(AForm::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     try
     {
@@ -128,22 +137,24 @@ int main(void)
     }
     catch(AForm::FormNotSignedException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(AForm::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
+    std::cout << rForm;
+    std::cin.ignore();
+    std::cout << CLEAR;
+    proceed("\nTrying to sign and execute Presidential Pardon Form:", GREEN, YES);
 
-    proceed("\nTrying to sign and execute Presidential Pardon Form:");
-
-     try
+    try
     {
         pForm->beSigned(*john);
     }
     catch(AForm::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     try
     {
@@ -151,14 +162,18 @@ int main(void)
     }
     catch(AForm::FormNotSignedException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(AForm::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
+    std::cout << pForm;
+    std::cin.ignore();
     delete john;
     delete sForm;
     delete pForm;
     delete rForm;
+
+    proceed("*****                END                *****", RED, NO);
 }
