@@ -6,23 +6,26 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 14:31:13 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/02 19:52:45 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/03/12 22:17:59 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void proceed(std::string msg)
+void proceed(std::string msg, std::string color, bool has_enter)
 {
-    std::cout << msg << std::endl;
-    std::cout << "Press ENTER to proceed." << std::endl;
-    std::cin.ignore();
-    //std::cout << std::endl;
+    std::cout << color << msg << WHITE << std::endl;
+    if(has_enter == YES)
+    {
+        std::cout << "Press " << GREEN << "ENTER " << WHITE << "to proceed."  << std::endl;
+        std::cin.ignore();
+    }
 }
 
 int main(void)
 {
-    proceed("#Basic test - default constructor#");
+    std::cout << CLEAR;
+    proceed("#Basic test - default constructor#", GREEN, YES);
     Bureaucrat *defaultBureaucrat = NULL;
     try
     {
@@ -30,45 +33,47 @@ int main(void)
     }
     catch(Bureaucrat::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     
     std::cout << defaultBureaucrat << std::endl << std::endl;
-    
-    proceed("#Basic test - Increment rank test#");
+    std::cin.ignore();
+    std::cout << CLEAR;
+    proceed("#Basic test - Increment rank test#", GREEN, YES);
     try
     {
         defaultBureaucrat->incrementGrade();
     }
     catch(Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(Bureaucrat::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     std::cout << defaultBureaucrat << std::endl << std::endl;
 
     defaultBureaucrat->decrementGrade();
-
-    proceed("#Basic test - decrement rank test (grade restored to default)#");
-
+    
+    std::cin.ignore();
+    std::cout << CLEAR;
+    proceed("#Basic test - decrement rank test (grade restored to default = 150)#", GREEN, YES);
     try
     {
         defaultBureaucrat->decrementGrade();
     }
     catch(Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(Bureaucrat::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     
     std::cout << defaultBureaucrat << std::endl << std::endl;
@@ -76,27 +81,31 @@ int main(void)
     defaultBureaucrat->incrementGrade();
     delete defaultBureaucrat;
     
+    
+    std::cin.ignore();
+    std::cout << CLEAR;
+    proceed("#Basic test - increment rank test#", GREEN, YES);
     Bureaucrat *parameterBureaucrat = new Bureaucrat("Parameter", 1);
-    proceed("#Basic test - increment rank test#");
     try
     {
         parameterBureaucrat->incrementGrade();
     }
     catch(Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(Bureaucrat::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     
     std::cout << parameterBureaucrat << std::endl << std::endl;
     
     delete parameterBureaucrat;
-
-    proceed("Invalid grade constructor test");
-
+    
+    std::cin.ignore();
+    std::cout << CLEAR;
+    proceed("Invalid grade constructor test", GREEN, YES);
     Bureaucrat *invalidGrade = NULL;
 
     try
@@ -105,11 +114,11 @@ int main(void)
     }
     catch(Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     catch(Bureaucrat::GradeTooLowException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     
     delete invalidGrade;
@@ -120,11 +129,11 @@ int main(void)
     }
     catch(Bureaucrat::GradeTooHighException &e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << RED <<e.what() << WHITE << std::endl;
     }
     
     delete invalidGrade;
+    proceed("*****             END             *****", RED, NO);
     
-  
     
 }

@@ -16,6 +16,16 @@
 #include <iostream>
 #include <string>
 
+#define WHITE	"\033[0m"
+#define RED		"\033[31m"
+#define GREEN	"\033[32m"
+#define BLUE	"\033[34m"
+#define YELLOW	"\033[33m"
+#define CLEAR   "\033c"
+
+#define NO 0
+#define YES 1
+
 class Bureaucrat{
     private:
         const std::string _name;

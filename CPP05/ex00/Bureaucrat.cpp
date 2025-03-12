@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 17:50:53 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/01/02 19:53:13 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/03/12 22:05:55 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 Bureaucrat::Bureaucrat(void):_name("default"), _grade(150)
 {
-    std::cout <<"Default constructor called." << std::endl;
+    std::cout <<"Bureaucrat default constructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
     
-    std::cout <<"Parameter constructor called. Bureaucrat named " << this->getName();
+    std::cout <<"Bureaucrat parameter constructor called. Bureaucrat named " << this->getName();
     std::cout <<" was created and he/she is " << this->getGrade() << "º on rank." << std::endl;
     _setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy)
 {
-    std::cout << "Copy constructor called, source: " << copy.getName() << std::endl;
+    std::cout << "Bureaucrat copy constructor called, source: " << copy.getName() << std::endl;
     *this = copy;
 }
 
