@@ -55,7 +55,7 @@ int bureaucratRank(void)
         std::cin >> rank;
         if(std::cin.eof())
 			break;
-        if(std::cin.fail())
+        if(std::cin.fail() || rank > 150 || rank < 1)
 		{
 			proceed("Grade must have a valid number.", RED, NO);
 			std::cin.clear();
@@ -74,20 +74,24 @@ int main(void)
     std::cout << CLEAR;
     proceed("Setting parameters:", GREEN, YES);
     const std::string name = bureaucratName();
-    int rank = bureaucratRank();
     Bureaucrat *john = NULL;
     
-    try
+    while(true)
     {
-        john = new Bureaucrat(name, rank);
-    }
-    catch(Bureaucrat::GradeTooHighException &e)
-    {
-        std::cerr << RED <<e.what() << WHITE << std::endl;
-    }
-    catch(Bureaucrat::GradeTooLowException &e)
-    {
-        std::cerr << RED <<e.what() << WHITE << std::endl;
+        try
+        {
+            int rank = bureaucratRank();
+            john = new Bureaucrat(name, rank);
+        }
+        catch(Bureaucrat::GradeTooHighException &e)
+        {
+            std::cerr << RED <<e.what() << WHITE << std::endl;
+        }
+        catch(Bureaucrat::GradeTooLowException &e)
+        {
+            std::cerr << RED <<e.what() << WHITE << std::endl;
+        }
+        break;
     }
     
     AForm *sForm = new ShrubberyCreationForm("Joe");
