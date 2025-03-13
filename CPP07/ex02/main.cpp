@@ -6,7 +6,7 @@
 /*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 22:29:51 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/02/09 16:53:19 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:14:58 by crocha-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,21 +198,7 @@ int main ()
             {
                 std::cerr << RED << e.what() << WHITE << '\n';
             }
-            
-            try
-            {
-                testMessage("Trying to read from an invalid index of constArr:");
-                std::cout << "Size is: " << constArr.size() << std::endl;
-            }
-            catch(const std::exception& e)
-            {
-                std::cerr << RED << e.what() << WHITE << '\n';
-            }
         }
     }
-
-    
-
     testMessage("**********END**********");
-   
 }
