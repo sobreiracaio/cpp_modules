@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: caio <caio@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 16:53:52 by crocha-s          #+#    #+#             */
-/*   Updated: 2025/03/03 16:23:52 by crocha-s         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:26:02 by caio             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct data
         }btcData;
 
 bool checkDate(btcData &btc, std::string const &date);
-bool checkValue(btcData &btc, std::string const &tmp);
 std::vector<btcData> readDB(void);
 int dateComparison(std::tm const &dbDate, std::tm const &refDate);
 float exchangeResult(std::vector<btcData> const &database, btcData const &reference);

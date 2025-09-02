@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: crocha-s <crocha-s@student.42.fr>          +#+  +:+       +#+         #
+#    By: caio <caio@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 17:19:15 by crocha-s          #+#    #+#              #
-#    Updated: 2025/04/01 15:47:27 by crocha-s         ###   ########.fr        #
+#    Updated: 2025/09/02 13:47:13 by caio             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PmergeMe
 
-SRC = main.cpp RPN.cpp
+SRC = main.cpp PmergeMe.cpp
 
 OBJS = ${SRC:.cpp=.o}
 
